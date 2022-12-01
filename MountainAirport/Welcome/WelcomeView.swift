@@ -30,7 +30,15 @@ struct WelcomeView: View {
           } label: {
             WelcomeButtonView(title: "Flight Status", subTitle: "Departure and Arrival Information")
           }
-          
+          NavigationLink(
+            destination: SearchFlights(
+              flightData: flightInfo.flights
+            )
+          ) {
+            WelcomeButtonView(
+              title: "Search Flights",
+              subTitle: "Search Upcoming Flights")
+          }
           
           if let id = lastFlightInfo.lastFlightId,
              let lastFlight = flightInfo.getFlightById(id) {
